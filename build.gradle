@@ -48,3 +48,7 @@ task docker(type: Docker, dependsOn: war) {
 
     dryRun = true
 }
+
+task deploy(dependsOn: war) {
+    ""
+}
