@@ -11,6 +11,7 @@ buildscript {
 group 'io.freefair'
 version '1.0-SNAPSHOT'
 
+apply plugin: 'java'
 apply plugin: 'war'
 apply plugin: 'spring-boot'
 apply plugin: 'docker'
@@ -25,7 +26,6 @@ repositories {
 dependencies {
     compile "org.springframework.boot:spring-boot-starter-web"
     compile "org.springframework.boot:spring-boot-starter-thymeleaf"
-    compile "org.springframework.boot:spring-boot-devtools"
     providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
     compile "org.springframework.boot:spring-boot-starter-websocket"
     compile "org.springframework:spring-messaging"
@@ -56,6 +56,7 @@ task docker(type: Docker, dependsOn: war) {
 
 task deploy(dependsOn: war) {
     doLast {
+        println war.getArchivePath()
         println "scp ${war.getArchivePath()} ns1:/var/lib/tomcat7/webapps/dah.war".execute().errorStream.text
     }
 }
