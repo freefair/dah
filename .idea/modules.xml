@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1124716340/dah.iml" filepath="$PROJECT_DIR$/.idea/modules/1124716340/dah.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/dah.iml" filepath="$PROJECT_DIR$/.idea/modules/dah.iml" />
     </modules>
   </component>
