@@ -1,6 +1,6 @@
 buildscript {
     repositories {
-         mavenCentral()
+        mavenCentral()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE")
@@ -50,5 +50,7 @@ task docker(type: Docker, dependsOn: war) {
 }
 
 task deploy(dependsOn: war) {
-    ""
+    doLast {
+        println "scp ${war.getArchivePath()} ns1:/var/lib/tomcat7/webapps/dah.war".execute().errorStream.text
+    }
 }
