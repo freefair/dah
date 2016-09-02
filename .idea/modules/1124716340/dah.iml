@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id="dah" external.linked.project.path="/Volumes/Daten/Documents/DATA/GIT/dah" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.group="io.freefair" external.system.module.version="1.0-SNAPSHOT" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file:///Volumes/Daten/Documents/DATA/GIT/dah">
+      <excludeFolder url="file:///Volumes/Daten/Documents/DATA/GIT/dah/.gradle" />
+      <excludeFolder url="file:///Volumes/Daten/Documents/DATA/GIT/dah/build" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

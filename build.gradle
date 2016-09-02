@@ -1,0 +1,50 @@
+buildscript {
+    repositories {
+         mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE")
+        classpath('se.transmode.gradle:gradle-docker:1.2')
+    }
+}
+
+group 'io.freefair'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'war'
+apply plugin: 'spring-boot'
+apply plugin: 'docker'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.springframework.boot:spring-boot-starter-web"
+    compile "org.springframework.boot:spring-boot-starter-thymeleaf"
+    compile "org.springframework.boot:spring-boot-devtools"
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+}
+
+docker {
+    baseImage = 'tomcat:8-jre8'
+    maintainer = 'John Doe <john@doe.com>'
+}
+
+task docker(type: Docker, dependsOn: war) {
+    // The default image tag contains the applicationName
+    applicationName = 'dah'
+
+    addFile {
+        from zipTree(war.getArchivePath())
+        into '/usr/local/tomcat/webapps/ROOT/'
+    }
+
+    defaultCommand(["catalina.sh", "run"])
+
+    dryRun = true
+}
