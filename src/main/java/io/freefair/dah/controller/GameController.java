@@ -42,4 +42,9 @@ public class GameController
         Game game = gamingService.getGame(subscribe.getGameId());
         game.getUsers().add(new Player(subscribe.getUserId()));
     }
+
+    @MessageMapping("/game/ready")
+    public void markReady(SubscribeObject subscribeObject){
+        gamingService.markPlayerReady(subscribeObject.getGameId(), subscribeObject.getUserId());
+    }
 }
