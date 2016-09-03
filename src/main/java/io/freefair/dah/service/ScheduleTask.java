@@ -1,5 +1,6 @@
 package io.freefair.dah.service;
 
+import io.freefair.dah.game.Game;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
